@@ -7,8 +7,9 @@ html {
 }
 
 body {
-    background-color: #ccc;
+    background-color: #eeeeee;
     max-width: 1000px;
     margin: 50px auto;
-    font-family: 'Rowdies', cursive;
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
 }

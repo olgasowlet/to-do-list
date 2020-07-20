@@ -4,15 +4,50 @@
 }
 
 .section {
-    background-color: whitesmoke;
+    background-color: white;
     margin: 1px 0;
-    padding: 10px;
+    padding: 15px;
+    box-shadow: 0 0 5px #cccccc;
 }
 
 .section__header {
     margin: 0;
 }
 
+
 .section--margin {
     margin-bottom: 5px;
+}
+
+.section__div{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.section__input {
+    padding: 9px;
+    border: 1px solid #cccccc;
+    flex-grow: 1;
+}
+
+.section__button {
+    margin: 0 15px; 
+    background-color: teal;
+    box-shadow: 0 0 5px #cccccc;
+    border: none;
+    color: rgba(255, 255, 255, 0.801);
+}
+
+@media (max-width: 767px) {
+    .section__button {
+        margin: 10px;
+        flex-grow: 1;
+        align-content: stretch;
+        height: 35px;
+    }
+
+    .section__input {
+        margin: 15px 10px 0 ;
+    }
 }
