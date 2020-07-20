@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.section {
+    background-color: whitesmoke;
+    margin: 1px 0;
+    padding: 10px;
+}
+
+.section__header {
+    margin: 0;
+}
+
+.section--margin {
+    margin-bottom: 5px;
+}
