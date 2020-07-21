@@ -17,11 +17,20 @@
             htmlString += `
                 <li${task.done ? " class=\"listedTask--done\"" : " class=\"listedTask\""}>
                     ${task.content}
+                    <button class="listedTask__button listedTask__button--remover js-remove"><span class="far fa-trash-alt"></span></button>
                 </li>
             `;
         }
 
         document.querySelector(".js-tasks").innerHTML = htmlString;
+
+        const removeButtons = document.querySelectorAll(".js-remove");
+
+        removeButtons.forEach((removeButton, index) => {
+            removeButton.addEventListener('click', () => {
+                removeTask(index);
+            })
+        })
     };
 
     const addNewTask = (newTaskContent) => {
@@ -31,6 +40,11 @@
             done: false,
         });
 
+        render();
+    }
+
+    const removeTask = (index) => {
+        tasks.splice(index, 1);
         render();
     }
 
