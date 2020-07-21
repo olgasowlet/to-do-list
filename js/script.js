@@ -22,7 +22,7 @@
         for (const task of tasks) {
             htmlString += `
                 <li>
-                    ${tasks.content}
+                    ${task.content}
                 </li>
             `;
         }
