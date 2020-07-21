@@ -10,12 +10,33 @@
         },
     ];
 
+    const addNewTask = (newTaskContent) => {
+
+        tasks.push({
+            content: newTaskContent,
+            done: false,
+        });
+
+        render();
+    }
+
+    const removeTask = (index) => {
+        tasks.splice(index, 1);
+        render();
+    }
+
+    const toggleTaskDone = (index) => {
+        tasks[index].done = !tasks[index].done;
+        render();
+    }
+
     const render = () => {
         let htmlString = "";
 
         for (const task of tasks) {
             htmlString += `
                 <li${task.done ? " class=\"listedTask--done\"" : " class=\"listedTask\""}>
+                    <button class="listedTask__button listedTask__button--doner js-done"><i class="fas fa-check"></i></button>
                     ${task.content}
                     <button class="listedTask__button listedTask__button--remover js-remove"><span class="far fa-trash-alt"></span></button>
                 </li>
@@ -31,22 +52,16 @@
                 removeTask(index);
             })
         })
+
+        const doneButtons = document.querySelectorAll(".js-done");
+
+        doneButtons.forEach((doneButton, index) => {
+            doneButton.addEventListener('click', () => {
+                toggleTaskDone(index);
+            })
+        })
     };
 
-    const addNewTask = (newTaskContent) => {
-
-        tasks.push({
-            content: newTaskContent,
-            done: false,
-        });
-
-        render();
-    }
-
-    const removeTask = (index) => {
-        tasks.splice(index, 1);
-        render();
-    }
 
     const onFormSubmit = (event) => {
         event.preventDefault();
