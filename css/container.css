@@ -19,10 +19,11 @@
     margin-bottom: 5px;
 }
 
-.section__div{
+.section__div, .section__form{
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 .section__input {
@@ -43,11 +44,18 @@
     .section__button {
         margin: 10px;
         flex-grow: 1;
-        align-content: stretch;
-        height: 35px;
+        align-self: center;
+        height: 45px;
     }
 
     .section__input {
-        margin: 15px 10px 0 ;
+        margin: 15px 10px;
+        height: 45px;
+    }
+}
+
+@media (max-width: 387px) {
+    .section__input {
+        margin-bottom: 0;
     }
 }
