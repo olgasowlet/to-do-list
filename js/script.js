@@ -1,14 +1,5 @@
 {
-    const tasks = [
-        {
-            content: "Zjeść obiad",
-            done: false,
-        },
-        {
-            content: "Zjeść czekoladę",
-            done: true,
-        },
-    ];
+    const tasks = [];
 
     const addNewTask = (newTaskContent) => {
 
@@ -37,7 +28,7 @@
             htmlString += `
                 <li${task.done ? " class=\"listedTask--done\"" : " class=\"listedTask\""}>
                     <button class="listedTask__button listedTask__button--doner js-done"><i class="fas fa-check"></i></button>
-                    ${task.content}
+                    <span class="listedTask__content">${task.content}</span>
                     <button class="listedTask__button listedTask__button--remover js-remove"><span class="far fa-trash-alt"></span></button>
                 </li>
             `;

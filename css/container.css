@@ -60,11 +60,41 @@
     }
 }
 
-.listedTask {
-    color: green;
+.section__listOfTasks {
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
 
 .listedTask--done {
-    color: red;
     text-decoration: line-through;
+}
+
+.listedTask, .listedTask--done {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.listedTask__button {
+    margin: 10px;
+    height: 30px;
+    width: 30px;
+    color: white;
+    box-shadow: none;
+    border: none;
+}
+
+.listedTask__button--doner {
+    background-color: green;
+}
+
+.listedTask__button--remover {
+    background-color: rgb(231, 40, 40);
+}
+
+.listedTask__content {
+    flex-grow: 1;
+    align-self: center;
 }
