@@ -26,9 +26,9 @@
 
         for (const task of tasks) {
             htmlString += `
-                <li${task.done ? " class=\"listedTask--done\"" : " class=\"listedTask\""}>
-                    <button class="listedTask__button listedTask__button--doner js-done"><i class="fas fa-check"></i></button>
-                    <span class="listedTask__content">${task.content}</span>
+                <li class="listedTask">
+                    <button class="listedTask__button listedTask__button--doner js-done"><i${task.done ? " class=\"fas fa-check\"" : " class=\"fas--none fa-check\""}></i></button>
+                    <span${task.done ? " class=\"listedTask__content--done\"" : " class=\"listedTask__content\""}>${task.content}</span>
                     <button class="listedTask__button listedTask__button--remover js-remove"><span class="far fa-trash-alt"></span></button>
                 </li>
             `;
