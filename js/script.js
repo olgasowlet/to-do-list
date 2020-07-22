@@ -51,11 +51,14 @@
                 toggleTaskDone(index);
             })
         })
+
+        const contentElement = document.querySelector(".js-input");
+
+        contentElement.focus();
     };
 
 
-    const onFormSubmit = (event) => {
-        event.preventDefault();
+    const onFormReset = (event) => {
         const newTaskContent = document.querySelector(".js-input").value.trim();
 
         if (newTaskContent === "") {
@@ -70,7 +73,8 @@
 
         const formElement = document.querySelector(".js-form");
 
-        formElement.addEventListener('submit', onFormSubmit);
+        formElement.addEventListener('reset', onFormReset);
+
     };
 
     init();
