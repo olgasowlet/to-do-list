@@ -33,7 +33,7 @@
 }
 
 .section__button {
-    margin: 0 15px; 
+    margin: 0 0 0 15px; 
     background-color: teal;
     box-shadow: 0 0 5px #cccccc;
     border: none;
@@ -84,6 +84,16 @@
     color: white;
     box-shadow: none;
     border: none;
+    align-self: center;
+    padding: 10px;
+    display: flex;
+}
+
+.fas, .far {
+    text-align: center;
+    align-self: center;
+    justify-content: center;
+    align-content: flex-start;
 }
 
 .listedTask__button--doner {
@@ -97,4 +107,7 @@
 .listedTask__content {
     flex-grow: 1;
     align-self: center;
+    white-space: normal;
+    text-overflow: visible;
+    padding: 5px;
 }
