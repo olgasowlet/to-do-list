@@ -52,20 +52,21 @@
             })
         })
 
-        const contentElement = document.querySelector(".js-input");
-
-        contentElement.focus();
     };
 
 
     const onFormReset = (event) => {
-        const newTaskContent = document.querySelector(".js-input").value.trim();
+        const contentElement = document.querySelector(".js-input");
+        const newTaskContent = contentElement.value.trim();
 
         if (newTaskContent === "") {
             return;
         }
 
+        contentElement.focus();
+        
         addNewTask(newTaskContent);
+
     }
 
     const init = () => {
