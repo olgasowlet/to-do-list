@@ -1,27 +1,35 @@
 {
-    const tasks = [];
+    let tasks = [];
+    let hideDoneTasks = false; //przełącza przyciski czy je widać czy nie
 
     const addNewTask = (newTaskContent) => {
-
-        tasks.push({
-            content: newTaskContent,
-            done: false,
-        });
+        tasks = [
+            ...tasks,
+            {content: newTaskContent},
+        ];
 
         render();
     }
 
     const removeTask = (index) => {
-        tasks.splice(index, 1);
+        tasks = [
+            ...tasks.slice(0, index),
+            ...tasks.slice(index + 1),
+        ];
         render();
     }
 
     const toggleTaskDone = (index) => {
-        tasks[index].done = !tasks[index].done;
+        tasks = [
+            ...tasks.slice(0, index),
+            { ...tasks[index], done: tasks[index].done = !tasks[index].done },
+            ...tasks.slice(index + 1),
+        ];
+
         render();
     }
 
-    const render = () => {
+    const renderTasks = () => {
         let htmlString = "";
 
         for (const task of tasks) {
@@ -54,6 +62,16 @@
 
     };
 
+    const renderButtons = () => { };
+
+    const bindButtonsEvents = () => {};
+
+    const render = () => {
+        renderTasks();
+        renderButtons();
+        bindButtonsEvents();
+    };
+
 
     const onFormReset = (event) => {
         const contentElement = document.querySelector(".js-input");
@@ -64,7 +82,7 @@
         }
 
         contentElement.focus();
-        
+
         addNewTask(newTaskContent);
 
     }
