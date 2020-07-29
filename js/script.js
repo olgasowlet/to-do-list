@@ -1,6 +1,6 @@
 {
     let tasks = [];
-    let hideDoneTasks = true; //przełącza przyciski czy je widać czy nie
+    let buttonsVisibility = false; //przełącza przyciski czy je widać czy nie
 
     const addNewTask = (newTaskContent) => {
         tasks = [
@@ -31,17 +31,17 @@
 
     const checkButtonsVisibility = () => {
         if (tasks.length !== 0) {
-            hideDoneTasks = false;
+            buttonsVisibility = true;
         } else {
-            hideDoneTasks = true;
+            buttonsVisibility = false;
         };
     };
 
     const displayButtons = () => {
         const hideFinishedTasksButton = document.querySelector(".js-button-hide");
         const finishTasksButton = document.querySelector(".js-button-finishAll");
-        
-        if (hideDoneTasks === false) {
+
+        if (buttonsVisibility === true) {
             hideFinishedTasksButton.classList.replace("section__button", "section__button--display");
             finishTasksButton.classList.replace("section__button", "section__button--display");
         } else {
@@ -83,18 +83,20 @@
 
     };
 
-    // const renderButtons = () => { };
-
-    const bindButtonsEvents = () => {
-
+    const renderButtons = () => {
         checkButtonsVisibility();
         displayButtons();
     };
 
+    // const bindButtonsEvents = () => {
+
+
+    // };
+
     const render = () => {
         renderTasks();
-        // renderButtons();
-        bindButtonsEvents();
+        renderButtons();
+        // bindButtonsEvents();
     };
 
 
