@@ -37,6 +37,19 @@
         };
     };
 
+    const displayButtons = () => {
+        const hideFinishedTasksButton = document.querySelector(".js-button-hide");
+        const finishTasksButton = document.querySelector(".js-button-finishAll");
+        
+        if (hideDoneTasks === false) {
+            hideFinishedTasksButton.classList.replace("section__button", "section__button--display");
+            finishTasksButton.classList.replace("section__button", "section__button--display");
+        } else {
+            hideFinishedTasksButton.classList.replace("section__button--display", "section__button");
+            finishTasksButton.classList.replace("section__button--display", "section__button");
+        };
+    }
+
     const renderTasks = () => {
         let htmlString = "";
 
@@ -73,18 +86,9 @@
     // const renderButtons = () => { };
 
     const bindButtonsEvents = () => {
-        const hideFinishedTasksButton = document.querySelector(".js-button-hide");
-        const finishTasksButton = document.querySelector(".js-button-finishAll");
 
         checkButtonsVisibility();
-
-        if (hideDoneTasks === false) {
-            hideFinishedTasksButton.classList.replace("section__button", "section__button--display");
-            finishTasksButton.classList.replace("section__button", "section__button--display");
-        } else {
-            hideFinishedTasksButton.classList.replace("section__button--display", "section__button");
-            finishTasksButton.classList.replace("section__button--display", "section__button");
-        };
+        displayButtons();
     };
 
     const render = () => {
