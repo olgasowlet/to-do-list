@@ -1,11 +1,11 @@
 {
     let tasks = [];
-    let hideDoneTasks = false; //przełącza przyciski czy je widać czy nie
+    let hideDoneTasks = true; //przełącza przyciski czy je widać czy nie
 
     const addNewTask = (newTaskContent) => {
         tasks = [
             ...tasks,
-            {content: newTaskContent},
+            { content: newTaskContent },
         ];
 
         render();
@@ -28,6 +28,14 @@
 
         render();
     }
+
+    const checkButtonsVisibility = () => {
+        if (tasks.length !== 0) {
+            hideDoneTasks = false;
+        } else {
+            hideDoneTasks = true;
+        };
+    };
 
     const renderTasks = () => {
         let htmlString = "";
@@ -62,13 +70,26 @@
 
     };
 
-    const renderButtons = () => { };
+    // const renderButtons = () => { };
 
-    const bindButtonsEvents = () => {};
+    const bindButtonsEvents = () => {
+        const hideFinishedTasksButton = document.querySelector(".js-button-hide");
+        const finishTasksButton = document.querySelector(".js-button-finishAll");
+
+        checkButtonsVisibility();
+
+        if (hideDoneTasks === false) {
+            hideFinishedTasksButton.classList.replace("section__button", "section__button--display");
+            finishTasksButton.classList.replace("section__button", "section__button--display");
+        } else {
+            hideFinishedTasksButton.classList.replace("section__button--display", "section__button");
+            finishTasksButton.classList.replace("section__button--display", "section__button");
+        };
+    };
 
     const render = () => {
         renderTasks();
-        renderButtons();
+        // renderButtons();
         bindButtonsEvents();
     };
 
@@ -79,7 +100,7 @@
 
         if (newTaskContent === "") {
             return;
-        }
+        };
 
         contentElement.focus();
 

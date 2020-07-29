@@ -8,10 +8,24 @@
     margin: 1px 0;
     padding: 15px;
     box-shadow: 0 0 5px #cccccc;
+    display: flex;
 }
 
 .section__header {
     margin: 0;
+    flex-grow: 1;
+    align-self: center;
+}
+
+.section__button {
+    display: none;
+}
+
+.section__button--display {
+    border: none;
+    background-color: white;
+    color: teal;
+    padding: 0 10px;
 }
 
 .section--margin {
