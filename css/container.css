@@ -26,6 +26,11 @@
     background-color: white;
     color: teal;
     padding: 0 10px;
+    transition: 0.5s;
+}
+
+.section__button:hover {
+    opacity: 0.7;
 }
 
 .section--margin {

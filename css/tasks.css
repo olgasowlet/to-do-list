@@ -21,6 +21,11 @@
     align-self: center;
     padding: 10px;
     display: flex;
+    transition: 0.5s;
+}
+
+.listedTask__button:hover {
+    opacity: 0.7;
 }
 
 .fas, .far {
