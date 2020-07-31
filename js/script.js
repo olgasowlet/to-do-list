@@ -1,6 +1,7 @@
 {
     let tasks = [];
-    let buttonsVisibility = false; //przełącza przyciski czy je widać czy nie
+    // let buttonsVisibility = false;
+    let hideDoneTasks = false;
 
     const addNewTask = (newTaskContent) => {
         tasks = [
@@ -29,32 +30,11 @@
         render();
     }
 
-    const checkButtonsVisibility = () => {
-        if (tasks.length !== 0) {
-            buttonsVisibility = true;
-        } else {
-            buttonsVisibility = false;
-        };
-    };
-
-    const displayButtons = () => {
-        const hideFinishedTasksButton = document.querySelector(".js-button-hide");
-        const finishTasksButton = document.querySelector(".js-button-finishAll");
-
-        if (buttonsVisibility === true) {
-            hideFinishedTasksButton.classList.replace("section__button", "section__button--display");
-            finishTasksButton.classList.replace("section__button", "section__button--display");
-        } else {
-            hideFinishedTasksButton.classList.replace("section__button--display", "section__button");
-            finishTasksButton.classList.replace("section__button--display", "section__button");
-        };
-    }
-
     const renderTasks = () => {
-        let htmlString = "";
+        let htmlListOfTasks = "";
 
         for (const task of tasks) {
-            htmlString += `
+            htmlListOfTasks += `
                 <li class="listedTask">
                     <button class="listedTask__button listedTask__button--doner js-done"><i${task.done ? " class=\"fas fa-check\"" : " class=\"fas--none fa-check\""}></i></button>
                     <span${task.done ? " class=\"listedTask__content--done\"" : " class=\"listedTask__content\""}>${task.content}</span>
@@ -63,7 +43,7 @@
             `;
         }
 
-        document.querySelector(".js-tasks").innerHTML = htmlString;
+        document.querySelector(".js-tasks").innerHTML = htmlListOfTasks;
 
         const removeButtons = document.querySelectorAll(".js-remove");
 
@@ -84,13 +64,25 @@
     };
 
     const renderButtons = () => {
-        checkButtonsVisibility();
-        displayButtons();
+        let htmlButtons = "";
+
+        if (tasks.length !== 0) {
+            htmlButtons += `
+            <button class="section__button">Ukryj ukończone</button>
+            <button class="section__button">Ukończ wszystkie</button>`;
+        };
+
+        document.querySelector(".js-buttons-start").innerHTML = htmlButtons;
+        
     };
 
     // const bindButtonsEvents = () => {
+    //     const hideFinishedTasksButton = document.querySelector(".js-button-hide");
+    //     const finishTasksButton = document.querySelector(".js-button-finishAll");
 
+    //     if (buttonsVisibility === true) {
 
+    //     };
     // };
 
     const render = () => {

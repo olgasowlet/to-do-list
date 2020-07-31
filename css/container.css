@@ -17,11 +17,11 @@
     align-self: center;
 }
 
-.section__button {
-    display: none;
+.section__span {
+    display: flex;
 }
 
-.section__button--display {
+.section__button {
     border: none;
     background-color: white;
     color: teal;
