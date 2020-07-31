@@ -58,3 +58,7 @@
     flex-wrap: wrap;
     width: 100%;
 }
+
+.section__button:disabled {
+    color: grey;
+}
