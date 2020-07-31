@@ -1,6 +1,5 @@
 {
     let tasks = [];
-    // let buttonsVisibility = false;
     let hideDoneTasks = false;
 
     const addNewTask = (newTaskContent) => {
@@ -49,10 +48,17 @@
 
         for (const task of tasks) {
             htmlListOfTasks += `
-                <li class="listedTask${task.done && hideDoneTasks ? " listedTask--hidden\"" : "\""}>
-                    <button class="listedTask__button listedTask__button--doner js-done"><i${task.done ? " class=\"fas fa-check\"" : " class=\"fas--none fa-check\""}></i></button>
-                    <span${task.done ? " class=\"listedTask__content--done\"" : " class=\"listedTask__content\""}>${task.content}</span>
-                    <button class="listedTask__button listedTask__button--remover js-remove"><span class="far fa-trash-alt"></span></button>
+                <li class="
+                    listedTask${task.done && hideDoneTasks ? " listedTask--hidden\"" : "\""}>
+                    <button class="listedTask__button listedTask__button--doner js-done">
+                    <i${task.done ? " class=\"fas fa-check\"" : " class=\"fas--none fa-check\""}></i>
+                    </button>
+                    <span
+                    ${task.done ? " class=\"listedTask__content--done\"" : " class=\"listedTask__content\""}>${task.content}
+                    </span>
+                    <button class="listedTask__button listedTask__button--remover js-remove">
+                    <span class="far fa-trash-alt"></span>
+                    </button>
                 </li>
             `;
         }
